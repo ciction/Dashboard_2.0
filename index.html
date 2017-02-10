@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>3D Dashboard</title>
+		<!--css-->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+		<link href="assets/css/style.css" rel="stylesheet">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="mobile-web-app-capable" content="yes" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<script src="http://www.w3schools.com/lib/w3data.js"></script>
+	</head>
+
+	<body>
+
+	<div class="row">
+		<div id="3Dcard" class="card-panel  grey lighten-5">
+		<div class="viewer" class="col s6">
+			<div id="canvas-3d" class="canvasBorder">
+				<div id="controls">
+					<button class="waves-effect waves-light btn-floating btn blue tooltipped" id="focusCenterBtn"
+							data-position="top" data-tooltip="focus center" style="margin: 5px;">
+						<i class="material-icons" style="font-size: 2.1rem">filter_center_focus</i>
+					</button>
+					<button class="waves-effect waves-light btn-floating btn red tooltipped" id="fullscreenBtn"
+							data-position="top" data-tooltip="fullscreen" style="margin: 5px;" onclick="fullscreen()">
+						<i class="large material-icons" style="font-size: 2.1rem">fullscreen</i>
+					</button>
+				</div>
+			</div>
+		</div>
+		</div>
+	</div>
+
+
+	<!-- include modals-->
+	<div w3-include-html="modal.html"></div>
+
+
+
+
+
+
+	<!-- External libraries -->
+	<script src="assets/libs/three/three.js"></script>
+	<script src="assets/libs/jquery.min.js"></script>
+	<script src="assets/js/jquery.fullscreen.js"></script>
+
+
+	<script>
+		console.log("sdgdsgdsw");
+		$(window).bind("fullscreen-on", function(e) {
+			console.log("we're on fullscreen now");
+		});
+
+		$(window).bind("fullscreen-toggle", function(e, state) {
+			console.log("toggle");
+		});
+	</script>
+
+		<!-- HTML includes-->
+		<script>
+			w3IncludeHTML();
+		</script>
+
+
+		<!-- material design-->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+
+		<!-- highcharts -->
+		<script src="https://code.highcharts.com/highcharts.js"></script>
+		<script src="https://code.highcharts.com/highcharts-more.js"></script>
+		<script src="https://code.highcharts.com/modules/exporting.js"></script>
+		<!--<script src="https://code.highcharts.com/modules/solid-gauge.js"></script>-->
+
+
+		<!-- 3D -->
+		<!-- Orbit Controls -->
+		<script src="assets/libs/three/OrbitControls.js"></script>
+		<!-- Water shader -->
+		<script src="assets/libs/water-material.js"></script>
+		<!-- Demo files -->
+		<script src="assets/js/ConvenienceMethods.js"></script>
+		<script src="assets/js/window.js"></script>
+		<script src="assets/js/Cube.js"></script>
+		<script src="assets/js/Turbine.js"></script>
+		<script src="assets/js/JSONModel.js"></script>
+		<script src="assets/js/Skybox.js"></script>
+		<script src="assets/js/RayCastManager.js"></script>
+		<script src="assets/js/Water.js"></script>
+		<script src="assets/js/Chart.js"></script>
+		<script src="assets/js/demo.js"></script>
+		<script src="assets/js/ModalManager.js"></script>
+		<script src="assets/js/main.js"></script>
+
+
+
+
+
+
+
+
+	<!-- Modal core script (activate material css on modals )-->
+	<script>
+		$(document).ready(function(){
+			$('.modal').modal({
+				complete: function() { ModalManager.setModalClosed() } // Callback for Modal close
+			}
+			);
+		});
+	</script>
+
+
+	</body>
+
+</html>
+
