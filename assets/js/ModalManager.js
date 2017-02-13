@@ -4,6 +4,7 @@ class ModalManager{
     }
 
     openModal(turbineID){
+        console.log("open modal");
         if(turbineID != null && (ModalManager.isModalOpen == false)){
             //Turbine data
             var baseUserData = Turbine.TurbineList[turbineID - 1]._base._mesh.userData;
@@ -17,6 +18,11 @@ class ModalManager{
              new PolarChart(wickUserData.yaw,wickUserData.speed,"Yaw");
              new PolarChart(wickUserData.yaw,wickUserData.speed,"Wind");
 
+            //wip
+            var gaugeChartSpeed = new GaugeChart(wickUserData.speed,"Speed");
+            var gaugeChartEnergy = new GaugeChart(wickUserData.yaw,"Energy");
+
+            
             //set modal text
             $('#modal1 p').html("<label>ID:</label>" + baseUserData.ID + "<br>" +
                                   "<label>baseType:</label>" + baseUserData.baseType + "<br>" +

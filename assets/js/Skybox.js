@@ -26,15 +26,17 @@ class SkyBox{
         this._skybox = this._skybox_neutral;
         var skybox = this._skybox;
 
-        
-        var aCubeMap = THREE.ImageUtils.loadTextureCube([
-            skybox.path + skybox.right,
-            skybox.path + skybox.left,
-            skybox.path + skybox.top,
-            skybox.path + skybox.bottom,
-            skybox.path + skybox.front,
-            skybox.path + skybox.back
-        ]);
+        var aCubeMap = new THREE.CubeTextureLoader()
+            .setPath( skybox.path )
+            .load( [
+                skybox.right,
+                skybox.left,
+                skybox.top,
+                skybox.bottom,
+                skybox.front,
+                skybox.back
+            ] );
+ 
 
         aCubeMap.format = THREE.RGBFormat;
 
