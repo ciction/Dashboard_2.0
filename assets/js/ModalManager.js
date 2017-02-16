@@ -10,9 +10,10 @@ class ModalManager{
             var baseUserData = Turbine.TurbineList[turbineID - 1]._base._mesh.userData;
             var wickUserData = Turbine.TurbineList[turbineID - 1]._wick._mesh.userData;
 
+
             ModalManager.isModalOpen = true;
             //set modal title
-            $('#modal1 h4').text("Turbine " + turbineID );
+            $('#modal1 h4').text("Turbine " + wickUserData.IDname + " " + wickUserData.IDnumber );
 
             //set modal charts
              new PolarChart(wickUserData.yaw,wickUserData.speed,"Yaw");
@@ -28,7 +29,8 @@ class ModalManager{
                                   "<label>baseType:</label>" + baseUserData.baseType + "<br>" +
                                   "<label>type:</label>" + baseUserData.type +"<br>" +
                                   "<label>speed:</label>" + wickUserData.speed + "<br>" +
-                                  "<label>yaw:</label>" + wickUserData.yaw + "<br>");
+                                  "<label>yaw:</label>" + wickUserData.yaw + "<br>" +
+                                  "<h4>" +  wickUserData.status +"</h4>"+ "<br>");
 
             //show the modal
             $('#modal1').modal('open');

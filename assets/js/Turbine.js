@@ -1,5 +1,5 @@
 class Turbine{
-    constructor(scene, params){
+    constructor(scene, params, fctnAfter){
         Turbine.count = Turbine.count + 1;
         if(Turbine.TurbineList == null) {
             Turbine.TurbineList = [];
@@ -7,7 +7,10 @@ class Turbine{
         self = this;
 
         var wickData = {
-            ID: Turbine.count,
+            Nr: Turbine.count,
+            IDname: params.IDname,
+            IDnumber: params.IDnumber,
+            status: params.status,
             baseType: 'turbine',
             type: 'turbineWick',
             speed: 10,
@@ -15,7 +18,7 @@ class Turbine{
         };
 
         var baseData = {
-            ID: Turbine.count,
+            Nr: Turbine.count,
             baseType: 'turbine',
             type: 'turbineBase'
         };
@@ -45,12 +48,15 @@ class Turbine{
                 this._wick.getMesh().updateMatrix();
 
 
-                this._base .getMesh().rotation.y += Math.radians(180);
+                this._base.getMesh().rotation.y += Math.radians(180);
 
                 if(params !=null){
                     if(params.position !=null){
                         self.setPosition(params.position);
                     }
+                }
+                if(fctnAfter){
+                    fctnAfter();
                 }
              }
         }
@@ -64,13 +70,15 @@ class Turbine{
     }
 
     setPosition(position){
-        this._base.getMesh().position.set(position.x,position.y,position.z);
+        if(this._wick.getMesh() && this._base.getMesh()){
+            this._base.getMesh().position.set(position.x,position.y,position.z);
+        }
     }
 
     rotateY(degrees){
         if(this._wick.getMesh() && this._base.getMesh()){
             //wicks rotate along with the base
-            this._base .getMesh().rotation.y += Math.radians(degrees);
+            this._base.getMesh().rotation.y += Math.radians(degrees);
         }
     }
     

@@ -11,10 +11,10 @@ class RayCastManager{
         RayCastManager.ms_Raycaster.setFromCamera(WINDOW.ms_Mouse, this.ms_Camera);
         var intersects = RayCastManager.ms_Raycaster.intersectObjects(this.ms_Scene.children, true);
         if(intersects[0].object.userData.baseType == 'turbine'){
-            var id                  = intersects[0].object.userData.ID;
+            var nr                  = intersects[0].object.userData.Nr;
             var type                = intersects[0].object.userData.type;
-            //console.log('turbine selected: ' + id + " type: " + type);
-            RayCastManager.ms_SelectedTurbine = Turbine.TurbineList[id-1];
+            //console.log('turbine selected: ' + nr + " type: " + type);
+            RayCastManager.ms_SelectedTurbine = Turbine.TurbineList[nr-1];
             RayCastManager.ms_SelectedTurbine.highLight(0x9999bb);
         }
         else{
@@ -25,9 +25,9 @@ class RayCastManager{
         }
     }
 
-    static getHoveredTurbineID(){
+    static getHoveredTurbineNr(){
         if(RayCastManager.ms_SelectedTurbine){
-            return RayCastManager.ms_SelectedTurbine._base._mesh.userData.ID;
+            return RayCastManager.ms_SelectedTurbine._base._mesh.userData.Nr;
         }
     }
 

@@ -19,7 +19,7 @@ function onDocumentMouseDown(event) {
         intersects[0].object.callback();
     }
 
-	modalManager.openModal(RayCastManager.getHoveredTurbineID())
+	modalManager.openModal(RayCastManager.getHoveredTurbineNr())
 }
 
 

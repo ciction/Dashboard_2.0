@@ -10,7 +10,7 @@ var DEMO = {
 	ms_isDebugMode    : true,
 	ms_selectedObjects: [],
 	ms_RayCastManager : null,
-
+	
     enable: (function enable() {
         try {
             var aCanvas = document.createElement('canvas');
@@ -63,16 +63,10 @@ var DEMO = {
 		this.ms_Scene.add(new Cube());
 
 
-		this._turbine = new Turbine(this.ms_Scene);
-		var params = {
-			position:{
-				x: 150,
-				y: 0,
-				z: 150
-			}
-		}
-		this._turbine = new Turbine(this.ms_Scene, params);
-
+		//create Turbines
+		this._turbineManager = new TurbineManager(this.ms_Scene);
+		this._turbineManager.createTurbines();
+		
 
 
 
