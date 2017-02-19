@@ -36,3 +36,58 @@ body {
 		width: 95%;
 	}
 }
+
+#messagePane{
+	-webkit-transition: 1s;
+	-moz-transition: 1s;
+	-ms-transition: 1s;
+	-o-transition: 1s;
+	transition: 1s;
+
+	display: inline-block;
+	position: absolute;
+	right: 0;
+	background: #fafafa;
+	opacity: 0.9;
+	width: 20%;
+	height: 100%;
+	overflow: scroll;
+}
+
+#messagePane.horizTranslate {
+	-webkit-transition: 1s;
+	-moz-transition: 1s;
+	-ms-transition: 1s;
+	-o-transition: 1s;
+	transition: 1s;
+	right:-20%;
+
+}
+
+@media (max-width: 1500px) {
+	#messagePane {
+		width: 30%;
+	}
+
+	#messagePane.horizTranslate {
+		right:-30%;
+	}
+}
+@media (max-width: 992px) {
+	#messagePane {
+		width: 40%;
+	}
+
+	#messagePane.horizTranslate {
+		right:-40%;
+	}
+}
+
+
+#messagePane  .card{
+	margin:  .1em;
+}
+
+#messagePane .card .card-content{
+	padding: 16px;
+}

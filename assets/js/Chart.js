@@ -1,5 +1,5 @@
 class PolarChart {
-    constructor(direction, force, title) {
+    constructor(direction, force, title, minAngle, maxAngle) {
 
         var ChartContainers = {
             yawContainer: "yawChartContainer",
@@ -18,6 +18,9 @@ class PolarChart {
             case "wind":
                 chartContainer = ChartContainers.windContainer;
                 break;
+            default:
+                console.log("no container available for: '"+title+"'");
+                break;
         }
 
 
@@ -32,14 +35,14 @@ class PolarChart {
             },
 
             pane: {
-                startAngle: 0,
-                endAngle  : 360
+                startAngle: minAngle,
+                endAngle  : maxAngle
             },
 
             xAxis: {
                 tickInterval: 45,
-                min         : 0,
-                max         : 360,
+                min         : minAngle,
+                max         : maxAngle,
                 labels      : {
                     formatter: function () {
                         return this.value + '°';
@@ -73,22 +76,25 @@ class PolarChart {
 // -----------------------------------------------
 
 class GaugeChart {
-    constructor(level, title) {
+    constructor(level, title,minValue, maxValue) {
 
         var ChartContainers = {
-            speedContainer: "speedGaugeContainer",
-            energyContainer: "energyGaugeContainer",
+            RPMContainer: "RPMGaugeContainer",
+            powerProductionContainer: "powerProductionGaugeContainer",
         }
         var chartContainer = "";
 
         switch (title){
-            case "Energy":
-            case "Energy":
-                chartContainer = ChartContainers.energyContainer;
+            case "RPM":
+            case "rpm":
+                chartContainer = ChartContainers.RPMContainer;
                 break;
-            case "Speed":
-            case "speed":
-                chartContainer = ChartContainers.speedContainer;
+            case "Power Production":
+            case "power production":
+                chartContainer = ChartContainers.powerProductionContainer;
+                break;
+            default:
+                console.log("no container available for: '"+title+"'");
                 break;
         }
 
@@ -149,8 +155,8 @@ class GaugeChart {
         // The speed gauge
         this._gauge = Highcharts.chart(chartContainer, Highcharts.merge(gaugeOptions, {
             yAxis: {
-                min: 0,
-                max: 200,
+                min: minValue,
+                max: maxValue,
                 title: {
                     text: title
                 }
@@ -166,7 +172,7 @@ class GaugeChart {
                 dataLabels: {
                     format: '<div style="text-align:center"><span style="font-size:25px;color:' +
                     ((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black') + '">{y}</span><br/>' +
-                    '<span style="font-size:12px;color:silver">km/h</span></div>'
+                    '<span style="font-size:12px;color:silver">'+title+'</span></div>'
                 },
                 tooltip: {
                     valueSuffix: ' km/h'

@@ -13,8 +13,14 @@ class Turbine{
             status: params.status,
             baseType: 'turbine',
             type: 'turbineWick',
-            speed: 10,
-            yaw: 45
+
+            gaugeData:{
+                power_production: params.gaugeData.power_production,
+                rotor_rpm: params.gaugeData.rotor_rpm,
+                wind_speed: params.gaugeData.wind_speed,
+                wind_direction: params.gaugeData.wind_direction,
+                yaw_angle: params.gaugeData.yaw_angle
+            }
         };
 
         var baseData = {

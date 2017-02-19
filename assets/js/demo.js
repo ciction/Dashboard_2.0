@@ -62,14 +62,11 @@ var DEMO = {
 		// Add Models
 		this.ms_Scene.add(new Cube());
 
-
 		//create Turbines
 		this._turbineManager = new TurbineManager(this.ms_Scene);
 		this._turbineManager.createTurbines();
+
 		
-
-
-
 
 
 		// Add Debug elements

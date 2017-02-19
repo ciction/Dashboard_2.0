@@ -1,6 +1,6 @@
 var serverSideTurbineData = null;
 
-mockupData = {
+mockupData_turbineGeneralInfo = {
     "data": [
     ["BBA01", 37604, "green", [1.5078500509262085, 2.8872194290161133, 5.2453460693359375]],
     ["BBA02", 37594, "green", [2.0131354331970215, 2.6781065464019775, 4.854770183563232]],
@@ -57,15 +57,34 @@ mockupData = {
     ["BBF03", 37605, "green", [1.4164834022521973, 3.8085291385650635, 5.2817206382751465]],
     ["BBF04", 37596, "green", [1.2083556652069092, 3.4513661861419678, 5.459758758544922]],
     ["BBF05", 37590, "green", [1, 3.098064661026001, 5.637787342071533]]
-],
-    "param_info": [
-    ["power_production", 0, 3200],
-    ["rotor_rpm", 0, 20],
-    ["wind_speed", 0, 30],
-    ["wind_direction", 0, 360],
-    ["yaw_angle", 0, 360]
 ]
 }
 
+//minimum and maximum values for each chart
+mockupData_chartConfiguration ={
+    chart_config: {
+        power_production: [0,3200],
+        rotor_rpm: [0,20],
+        wind_speed: [0,30],
+        wind_direction: [0,360],
+        yaw_angle: [0,360]
+    }
+}
 
-serverSideTurbineData = mockupData;
+
+
+https://192.168.0.10:8443/AssetGuard-Wind/data/dashboard/stats?farm=belwind&turb=bba01
+mockupData_GaugeData = {
+    power_production: 2900,
+    rotor_rpm: 16,
+    wind_speed: 8,
+    wind_direction: 120,
+    yaw_angle: 122
+}
+
+
+
+
+serverSideTurbineData = mockupData_turbineGeneralInfo;
+serverSideTurbineGauges = mockupData_GaugeData;
+serverSideChartConfiguration = mockupData_chartConfiguration;
