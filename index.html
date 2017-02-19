@@ -16,10 +16,12 @@
 
 	<body>
 
+	<!--3D view -->
 	<div class="row">
 		<div id="3Dcard" class="card-panel  grey lighten-5">
 		<div class="viewer" class="col s6">
 			<div id="canvas-3d" class="canvasBorder">
+				<!--button controls inside 3D viewer-->
 				<div id="controls">
 					<button class="waves-effect waves-light btn-floating btn blue tooltipped" id="focusCenterBtn"
 							data-position="top" data-tooltip="focus center" style="margin: 5px;">
@@ -30,54 +32,69 @@
 						<i class="large material-icons" style="font-size: 2.1rem">fullscreen</i>
 					</button>
 				</div>
+				<!-- end control buttons -->
 			</div>
 		</div>
 		</div>
 	</div>
+	<!-- END 3D view -->
+
+	<!--<div class="row">-->
+		<!--<div class="col s12">-->
+			<!--<ul class="tabs">-->
+				<!--<li class="tab col s6"><a class="active" href="#Gauges">Gauges</a></li>-->
+				<!--<li class="tab col s6"><a href="#test2">Graph</a></li>-->
+			<!--</ul>-->
+		<!--</div>-->
+		<!--<div id="test1" class="col s12">Test 1</div>-->
+		<!--<div id="test2" class="col s12">Test 2</div>-->
+		<!--<div id="test3" class="col s12">Test 3</div>-->
+		<!--<div id="test4" class="col s12">Test 4</div>-->
+	<!--</div>-->
 
 
-	<!-- include modals-->
-	<!--<div w3-include-html="modal.html"></div>-->
 
-
-
-
-
-
-	<!-- Modal Structure -->
+	<!-- Modal Structure (modal with gauges comes here) -->
 	<div id="modal1" class="modal">
-		<div class="modal-content">
-			<h4>Modal Header</h4>
-			<p>A bunch of text</p>
-
-			<div class="row">
-				<div class="col m12 l6">
-					<div id="speedGaugeContainer" style='min-width: 310px; max-width: 400px; height: 200px; margin: 5px auto;'></div>
-				</div>
-				<div class="col m12 l6">
-					<div id="energyGaugeContainer" style='min-width: 310px; max-width: 400px; height: 200px; margin: 5px auto;'></div>
-				</div>
+		<div class="row">
+			<div class="col s12">
+				<ul class="tabs">
+					<li class="tab col s6"><a class="active" href="#Gauges">Gauges</a></li>
+					<li class="tab col s6"><a href="#Graph">Graph</a></li>
+				</ul>
 			</div>
+			<div class="modal-content" id="Gauges">
+				<h4>Modal Header</h4>
+				<p>A bunch of text</p>
 
-			<div class="row">
-				<div class="col m12 l6">
-					<div id='yawChartContainer' style='min-width: 310px; max-width: 400px; height: 400px; margin: 5px auto;'></div>
+				<div class="row">
+					<div class="col m12 l6">
+						<div id="speedGaugeContainer" style='min-width: 310px; max-width: 400px; height: 200px; margin: 5px auto;'></div>
+					</div>
+					<div class="col m12 l6">
+						<div id="energyGaugeContainer" style='min-width: 310px; max-width: 400px; height: 200px; margin: 5px auto;'></div>
+					</div>
 				</div>
-				<div class="col s12 l6">
-					<div id='windChartContainer' style='min-width: 310px; max-width: 400px; height: 400px; margin: 5px auto;'></div>
+
+				<div class="row">
+					<div class="col m12 l6">
+						<div id='yawChartContainer' style='min-width: 310px; max-width: 400px; height: 400px; margin: 5px auto;'></div>
+					</div>
+					<div class="col s12 l6">
+						<div id='windChartContainer' style='min-width: 310px; max-width: 400px; height: 400px; margin: 5px auto;'></div>
+					</div>
 				</div>
+
 			</div>
-
-
-
-
-
-
+			<div id="Graph" class="col s12" style="height: 900px;">Test 2</div>
 		</div>
+
+
 		<div class="modal-footer">
 			<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
 		</div>
 	</div>
+	<!-- END Modal Structure (modal with gauges comes here) -->
 
 
 
@@ -154,10 +171,12 @@
 	<!-- Modal core script (activate material css on modals )-->
 	<script>
 		$(document).ready(function(){
+			//activate modals
 			$('.modal').modal({
 				complete: function() { ModalManager.setModalClosed() } // Callback for Modal close
-			}
-			);
+			});
+			//activate tabs
+			$('ul.tabs').tabs();
 		});
 	</script>
 
